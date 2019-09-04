@@ -1,0 +1,5 @@
+host=localhost
+user=root
+pass=
+delay=5
+port=3306

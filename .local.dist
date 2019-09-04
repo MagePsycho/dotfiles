@@ -1,0 +1,5 @@
+# local configs which shouldn't go in git
+export GIT_AUTHOR_NAME="Raj KB"
+export GIT_AUTHOR_EMAIL="magepsycho@gmail.com"
+export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
