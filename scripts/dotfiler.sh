@@ -248,9 +248,7 @@ function processArgs()
 function initDefaultArgs()
 {
     MP_DOTFILES_DIR=$(pwd)
-    #MP_SYMLINK_DIR="$HOME"
-    # @todo remove only for testing
-    MP_SYMLINK_DIR="${HOME}/tmp/dotfiles"
+    MP_SYMLINK_DIR="$HOME"
 }
 
 function validateArgs()
