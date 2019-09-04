@@ -150,7 +150,7 @@ alias m2-phpmd="./vendor/bin/phpmd"
 #. /usr/local/etc/bash_completion.d/magento2-bash-completion
 
 # Check is the current directory is of M2 root
-assert_m2_root() {
+assertM2Root() {
     if [[ ! -f './bin/magento' ]] && [[ ! -f './app/etc/di.xml' ]]; then
         printf "Current directory is not Magento2 root."
         exit 1
@@ -158,23 +158,23 @@ assert_m2_root() {
 }
 
 # Enable Magento module(s) with setup-upgrade
-m2_module_enable() {
-    assert_m2_root
+m2ModuleEnable() {
+    assertM2Root
 	m2 module:enable $1 --clear-static-content && m2 setup:upgrade
 }
-alias m2:module:enable="m2_module_enable"
+alias m2-module-enable="m2ModuleEnable"
 
 # Clear settings/dependencies cache + theme related cache
-m2_cache_flush() {
-    assert_m2_root
+m2CacheFlush() {
+    assertM2Root
     rm -rf ./var/cache/ ./var/page_cache/ generated/code/
     if [[ $1 == 'theme' ]]; then
         rm -rf ./var/view_preprocessed/ ./pub/static/frontend/
     fi
 	m2 cache:enable $1 --clear-static-content && m2 setup:upgrade
 }
-alias m2:cache:flush="m2_cache_flush"
-alias m2:cache:clean="m2_cache_flush"
+alias m2-cache-flush="m2CacheFlush"
+alias m2-cache-clean="m2CacheFlush"
 
 ####################################
 # LOCALHOST DEV
