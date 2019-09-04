@@ -40,7 +40,7 @@ cd dotfiles
 
 ```
 
-Finally, install
+Finally, install the dotfiles
 ```
 chmod +x scripts/dotfiler.sh
 
@@ -50,6 +50,53 @@ chmod +x scripts/dotfiler.sh
 # to install
 ./scripts/dotfiler.sh --install
 ```
+
+### Customization
+In your local machine, you might want to set some custom settings which you don't want to keep in repository.  
+Here we will highlight on local customizations.
+
+#### Git
+**~/.gitconfig.local**
+```
+cd ~/dotfiles
+cp .gitconfig.local.dist ~/.gitconfig.local
+vi ~/.gitconfig.local
+```
+
+Here you can set git user config
+```
+[user]
+    email = magepsycho@gmail.com
+    name = Raj KB
+```
+
+To check all the available git configurations
+```
+git config --list
+```
+
+#### `$PATH`
+If `~/.path` exists, it will be sourced along with the other files.
+
+You can use this file if you want to add your new path to the `$PATH` environment.  
+Here’s an example `~/.path` file that adds `/usr/local/bin` to the `$PATH`:
+```
+export PATH="/usr/local/bin:$PATH"
+```
+
+
+*Don't forget to reload the `~/.bashrc`*
+```
+source ~/.bashrc
+```
+
+#### Others
+
+
+**~/.local**  
+This file will be sourced at last if exists.
+
+Here you can add custom commands without creating a new fork.
 
 ## References
 - https://github.com/webpro/awesome-dotfiles (curated list)
