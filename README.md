@@ -11,7 +11,7 @@ cd dotfiles
 ### Structure
 ```
 .
-├── .aliases
+├── .bash_aliases
 ├── .bash_profile
 ├── .bash_prompt
 ├── .bashrc
@@ -22,15 +22,15 @@ cd dotfiles
 ├── .config
 │   └── terminator
 │       └── config
-├── .exports
+├── .bash_exports
 ├── .gitconfig
 ├── .gitconfig.local.dist
 ├── .gitignore
 ├── .gitignore_global
-├── .local.dist
+├── .bash_local.dist
 ├── .my.cnf.dist
 ├── .mytop.dist
-├── .path.dist
+├── .bash_path.dist
 ├── scripts
 │   └── dotfiler.sh
 └── .ssh
@@ -76,10 +76,10 @@ git config --list
 ```
 
 #### `$PATH`
-If `~/.path` exists, it will be sourced along with the other files.
+If `~/.bash_path` exists, it will be sourced along with the other files.
 
 You can use this file if you want to add your new path to the `$PATH` environment.  
-Here’s an example `~/.path` file that adds `/usr/local/bin` to the `$PATH`:
+Here’s an example `~/.bash_path` file that adds `/usr/local/bin` to the `$PATH`:
 ```
 export PATH="/usr/local/bin:$PATH"
 ```

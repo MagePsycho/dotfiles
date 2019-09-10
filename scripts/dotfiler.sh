@@ -298,7 +298,7 @@ function linkDotfile()
 
 function symlinkDotfiles() 
 {
-    declare -a symlinkPath=('.bash_profile' '.bashrc' '.bash_prompt' '.exports' '.aliases' '.gitconfig' '.gitignore' '.gitignore_global');
+    declare -a symlinkPath=('.bash_profile' '.bashrc' '.bash_prompt' '.bash_exports' '.bash_aliases' '.gitconfig' '.gitignore' '.gitignore_global');
     _arrow "Symlinking in dir $MP_SYMLINK_DIR"
     for i in "${!symlinkPath[@]}" ; do
         file="${symlinkPath[$i]}"
