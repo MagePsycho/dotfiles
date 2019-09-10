@@ -8,7 +8,7 @@ git clone git@github.com:MagePsycho/dotfiles.git
 cd dotfiles
 ```
 
-### Structure
+Structure will look like:
 ```
 .
 ├── .bash_aliases

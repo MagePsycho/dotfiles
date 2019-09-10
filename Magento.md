@@ -62,3 +62,4 @@ pestle --help
 
 ## Others
 - [Phoenix Media Storage Sync](https://github.com/PHOENIX-MEDIA/magento2-mediastoragesync)
+    - [Forked Version by MagePsycho](https://github.com/MagePsycho/magento2-mediastoragesync)

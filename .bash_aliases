@@ -153,28 +153,55 @@ alias m2-phpmd="./vendor/bin/phpmd"
 assertM2Root() {
     if [[ ! -f './bin/magento' ]] && [[ ! -f './app/etc/di.xml' ]]; then
         printf "Current directory is not Magento2 root."
-        exit 1
+        return 1
     fi
 }
 
 # Enable Magento module(s) with setup-upgrade
 m2ModuleEnable() {
-    assertM2Root
+    assertM2Root || return
 	m2 module:enable $1 --clear-static-content && m2 setup:upgrade
 }
 alias m2-module-enable="m2ModuleEnable"
+alias m2-mod-enable="m2ModuleEnable"
 
 # Clear settings/dependencies cache + theme related cache
 m2CacheFlush() {
-    assertM2Root
-    rm -rf ./var/cache/ ./var/page_cache/ generated/code/
-    if [[ $1 == 'theme' ]]; then
-        rm -rf ./var/view_preprocessed/ ./pub/static/frontend/
+    assertM2Root || return
+
+    for arg in "$@"
+    do
+        case $arg in
+            -r|--redis)
+                echo 'Flushing redis cache...'
+                redis-cli flushall
+            ;;
+            -v|--varnish)
+                echo 'Flushing varnish cache...'
+                systemctl restart varnish
+            ;;
+            -t|--theme)
+                echo 'Flushing theme cache...'
+                rm -rf ./var/view_preprocessed/ ./pub/static/frontend/
+            ;;
+            -c|--cache)
+                echo 'Flushing default cache...'
+                rm -rf ./var/cache/ ./var/page_cache/ generated/code/
+            ;;
+            *)
+                # default
+            ;;
+        esac
+    done
+    if [[ $# -lt 1 ]]; then
+        echo 'Flushing default cache...'
+        rm -rf ./var/cache/ ./var/page_cache/ generated/code/
     fi
-	m2 cache:enable $1 --clear-static-content && m2 setup:upgrade
 }
 alias m2-cache-flush="m2CacheFlush"
+alias m2-cflush="m2CacheFlush"
 alias m2-cache-clean="m2CacheFlush"
+alias m2-cclean="m2CacheFlush"
 
 ####################################
 # LOCALHOST DEV
