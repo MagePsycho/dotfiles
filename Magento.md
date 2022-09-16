@@ -55,6 +55,7 @@ pestle --help
 
 ## Magento 2 Debugging Tools
 - [Developer Toolbar for Magento2 - by vpietri](https://github.com/vpietri/magento2-developer-quickdevbar)
+- [Smile Debug Toolbar for Magento 2](https://github.com/Smile-SA/magento2-module-debug-toolbar)
 - [Mgt Developer Toolbar for Magento 2](https://github.com/mgtcommerce/Mgt_Developertoolbar)
 - [Magento 2 Profiler Module by Mirsavit](https://github.com/mirasvit/module-profiler)
 - [Magento2 profiler console output](https://github.com/romantomchak/magento2-console-profiler)
